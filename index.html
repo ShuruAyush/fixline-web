@@ -10,7 +10,7 @@
     /* Landing-specific styles (shared base/header/footer live in styles.css). */
 
     /* Hero */
-    .hero { display: flex; align-items: center; gap: 48px; padding: 32px 0; }
+    .hero { display: flex; align-items: center; gap: 48px; padding-top: 32px; padding-bottom: 32px; }
     .hero .copy { flex: 1; display: flex; flex-direction: column; gap: 20px; }
     .hero h1 { font-size: clamp(32px, 4.4vw, 52px); line-height: 1.1; font-weight: 700; color: #fff; margin: 0; }
     .hero h1 .accent { color: var(--accent); }
@@ -33,17 +33,22 @@
     }
 
     /* How it works band (full-bleed) */
-    .how { background: var(--band); }
+    .how { background: var(--band); position: relative; }
     .how .head { text-align: center; padding: 32px 0; }
     .how .head h2 { font-size: clamp(24px, 5vw, 48px); color: #fff; margin: 0 0 8px; }
     .how .head .sub { font-style: italic; color: var(--accent); font-size: clamp(16px,2vw,20px); }
     .step { display: flex; align-items: center; gap: 80px; padding: 64px 0; }
-    .step.reverse { flex-direction: row-reverse; }
     .step .art img { height: 500px; max-height: 500px; width: auto; object-fit: contain; }
-    .step .copy { flex: 1; }
+    .step .copy { flex: 1; display: flex; flex-direction: column; }
+    .step.reverse .copy { align-items: flex-end; text-align: right; }
     .step .copy h3 { font-size: clamp(20px,3vw,36px); font-weight: 800; color: #fff; margin: 0 0 12px; line-height: 1.15; }
     .step .copy p { font-size: clamp(14px,1.4vw,18px); color: var(--dim); margin: 0; max-width: 520px; }
     @media (max-width: 650px) {
+      .how { overflow: hidden; }
+      .how::before {
+        content: ""; position: absolute; left: -20px; right: -20px; top: -15px; height: 30px;
+        background: var(--band); transform: rotate(-3deg); box-shadow: 0 -60px 80px #00000080;
+      }
       .step, .step.reverse { flex-direction: row; justify-content: space-around; gap: 16px; padding: 16px 0; }
       .step .art img { height: auto; width: 83px; }
       .step .copy { flex: 0 1 250px; max-width: 250px; }
@@ -52,17 +57,26 @@
     }
 
     /* Earnings */
-    .earnings { padding: 80px 0; display: flex; align-items: center; gap: 64px; }
+    .earnings { padding-top: 80px; padding-bottom: 80px; display: flex; align-items: center; gap: 64px; }
     .earnings .copy { flex: 1; }
     .earnings h2 { font-size: clamp(28px,4vw,40px); font-weight: 800; color: #fff; margin: 0 0 16px; line-height: 1.15; }
     .earnings h2 .gold { color: var(--gold); }
     .earnings p { font-size: clamp(15px,1.4vw,18px); color: var(--dim); max-width: 520px; }
     .earnings .chart { flex: 1; border: 5px solid rgba(255,255,255,0.05); border-radius: 20px; overflow: hidden; }
     .earnings .chart img { width: 100%; display: block; }
-    @media (max-width: 650px) { .earnings { flex-direction: column; padding: 40px 0; gap: 24px; } }
+    @media (max-width: 650px) {
+      .earnings { flex-direction: column; padding-top: 0; padding-bottom: 0; gap: 0; }
+      .earnings .copy {
+        background: var(--surface-alt); margin-left: -16px; margin-right: -16px;
+        padding: 16px 16px 64px; text-align: center;
+      }
+      .earnings .copy h2 { font-size: 28px; margin: 0; }
+      .earnings .copy p { display: none; }
+      .earnings .chart { margin-top: -56px; }
+    }
 
     /* Download banner */
-    .download { padding: 24px 0 0; }
+    .download { padding-top: 24px; }
     .download .box {
       display: flex; align-items: center; justify-content: space-between; gap: 32px;
       border: 1px solid var(--border); border-radius: 20px; padding: 40px;
@@ -70,7 +84,7 @@
     .download h2 { font-size: clamp(20px,3vw,30px); font-weight: 500; color: #fff; margin: 0 0 8px; }
     .download p { color: var(--dim); margin: 0; }
     .download .btn {
-      display: inline-flex; align-items: center; gap: 8px; height: 44px; padding: 0 24px;
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px; height: 44px; padding: 0 24px;
       border-radius: 8px; background: var(--cta); color: #fff; font-weight: 600; font-size: 14px; white-space: nowrap;
     }
     @media (max-width: 650px) { .download .box { flex-direction: column; align-items: stretch; padding: 24px; } }
@@ -80,7 +94,7 @@
   <!-- Header (shared chrome) -->
   <header class="site">
     <div class="container row">
-      <div class="brand"><span class="glyph">F</span><span class="word">Fixline</span></div>
+      <div class="brand"><span class="glyph"><img src="images/logo.svg" alt="Fixline logo"></span><span class="word">Fixline</span></div>
       <a class="get-app" href="#download">GET APP</a>
     </div>
   </header>
@@ -107,11 +121,11 @@
       </div>
 
       <div class="step">
-        <div class="art"><img src="images/step-slots.webp" alt="Setup your call slots" loading="lazy"></div>
         <div class="copy">
           <h3>Setup your call slots</h3>
           <p>Choose the days and times when you're available for calls.</p>
         </div>
+        <div class="art"><img src="images/step-slots.webp" alt="Setup your call slots" loading="lazy"></div>
       </div>
 
       <div class="step reverse">
@@ -123,11 +137,11 @@
       </div>
 
       <div class="step">
-        <div class="art"><img src="images/step-share.webp" alt="Share your Fixline" loading="lazy"></div>
         <div class="copy">
           <h3>Share your Fixline on all your social medias</h3>
           <p>Share your personal Fixline link across Instagram, YouTube, Facebook, X, WhatsApp and more.</p>
         </div>
+        <div class="art"><img src="images/step-share.webp" alt="Share your Fixline" loading="lazy"></div>
       </div>
 
       <div class="step reverse">
@@ -141,12 +155,14 @@
   </section>
 
   <!-- Earnings -->
-  <section class="container earnings">
-    <div class="copy">
-      <h2>More you connect. <span class="gold">More you earn.</span></h2>
-      <p>Leverage the powerful Fixline Desktop App to track analytical insights, schedule high-converting group calls, and control payouts from a dedicated creator cockpit.</p>
+  <section class="earnings-section">
+    <div class="container earnings">
+      <div class="copy">
+        <h2>More you connect. <span class="gold">More you earn.</span></h2>
+        <p>Leverage the powerful Fixline Desktop App to track analytical insights, schedule high-converting group calls, and control payouts from a dedicated creator cockpit.</p>
+      </div>
+      <div class="chart"><img src="images/earnings.webp" alt="Earnings dashboard" loading="lazy"></div>
     </div>
-    <div class="chart"><img src="images/earnings.webp" alt="Earnings dashboard" loading="lazy"></div>
   </section>
 
   <!-- Download banner -->
@@ -165,7 +181,7 @@
     <div class="container">
       <div class="inner">
         <div class="about">
-          <div class="brand" style="margin-bottom:16px;"><span class="glyph">F</span><span class="word">Fixline</span></div>
+          <div class="brand" style="margin-bottom:16px;"><span class="glyph"><img src="images/logo.svg" alt="Fixline logo"></span><span class="word">Fixline</span></div>
           <p>📞 Call without sharing your number. High-quality 1-on-1 audio &amp; video calls built for modern creators.</p>
         </div>
         <div class="cols">
