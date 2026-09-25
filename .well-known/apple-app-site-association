@@ -1,0 +1,10 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["5U3Q5RJLN9.videocall.global.free.wifi.calling.app.ios"],
+        "components": [{ "/": "*" }]
+      }
+    ]
+  }
+}
