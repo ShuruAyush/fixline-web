@@ -1,0 +1,21 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "videocall.global.free.wifi.calling.app",
+      "sha256_cert_fingerprints": [
+        "be:d5:a6:10:4b:c5:fb:c4:59:8c:2a:a1:95:8c:1c:8d:06:d2:d3:e8:46:29:b4:21:56:1a:5a:21:27:63:91:3b",
+        "50:21:33:ac:b9:ef:e0:63:57:bc:2d:bc:50:63:c7:db:4b:28:4c:01:99:96:f3:fb:f0:b9:c1:0b:30:ac:33:63",
+        "e8:68:a6:d3:96:75:22:00:d0:04:11:7a:19:03:be:1d:f3:3b:22:b7:c6:d2:04:a6:4b:94:ee:09:8c:d9:b1:7c",
+        "52:09:22:f1:56:05:fc:ea:6d:03:39:97:3c:3a:38:10:c4:17:59:5a:93:a8:fb:5a:93:ff:5c:cb:6a:d9:ac:e4",
+        "c2:31:86:6f:57:d6:c8:62:00:33:ff:4a:be:71:91:35:0c:4d:41:af:07:5c:f2:cc:8d:dc:47:6b:db:90:f7:58",
+        "49:ff:ef:1c:80:7f:ef:6e:a3:38:32:aa:d0:a3:3e:6a:47:2b:7b:32:18:3f:62:0a:f9:33:6b:58:64:d2:48:ce",
+        "f8:b9:02:9c:8f:46:df:16:1c:bf:3e:5c:f3:65:e2:6d:a8:70:f7:4f:87:15:60:ff:e0:9a:0b:cf:7b:4c:5f:12",
+        "fa:c6:17:45:dc:09:03:78:6f:b9:ed:e6:2a:96:2b:39:9f:73:48:f0:bb:6f:89:9b:83:32:66:75:91:03:3b:9c",
+        "3a:2f:25:85:6d:f5:c6:a6:f2:70:7d:a3:95:55:b6:d1:50:e1:c8:db:78:8b:a5:17:6c:5c:d5:77:ec:df:53:40",
+        "c3:8b:e2:a4:a1:70:d7:75:7e:dc:19:9f:13:f5:32:00:41:98:fb:ec:e9:82:15:86:52:3f:c0:f2:d0:c7:16:16"
+      ]
+    }
+  }
+]
